@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+@import url('data:application/octet-stream;base64,QGZvbnQtZmFjZSB7CiAgZm9udC1mYW1pbHk6ICdSb2JvdG8gTW9ubyc7CiAgZm9udC1zdHlsZTogbm9ybWFsOwogIGZvbnQtd2VpZ2h0OiA0MDA7CiAgZm9udC1kaXNwbGF5OiBzd2FwOwogIHNyYzogdXJsKGh0dHBzOi8vZm9udHMuZ3N0YXRpYy5jb20vcy9yb2JvdG9tb25vL3YxMy9MMHh1REY0eGxWTUYtQmZSOGJYTUloSkhnNDVtd2dHRUZsMF8zdnFQUXcudHRmKSBmb3JtYXQoJ3RydWV0eXBlJyk7Cn0K');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Mate SC', serif;
+    font-weight: 200;
+}
+
+input {
+    height: 2.5em;
+    width: 100%;
+    padding: .5em;
+    text-align: center;
+    margin: 1em 0;
+    font-family: 'Roboto Mono', monospace;
+    transition: all .5s;
+
+}
+/* header with game name */
+
+#header {
+    background: pink;
+    text-align: center;
+    padding: .8em 0;
+}
+
+#draw-boxes-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin: 3em 0;
+}
+/* each choice div */
+
+.draw-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 6em;
+    min-height: 6em;
+    background: #dde8eb;
+    margin: .4em 1em;
+}
+
+.draw-box p {
+    font-size: 2rem;
+    transition: all 0.8s;
+}
+
+.hide {
+    transform: rotate(180deg) scale(0);
+}
+
+/* the choice numbers */
+
+/* player columns */
+
+#player-info {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.player {
+    width:40%;
+    text-align: center;
+    padding: 1.5em 2em;
+}
+
+
+.player1 {
+    border-right: 1px solid grey;
+    color: #273342;
+}
+.player2 {
+    border-left: 1px solid grey;
+    color: #ad5534;
+}
+
+.player1-active, .player2-active {
+    width: .8em;
+    background: green;
+    height: .8em;
+    margin: 1em auto;
+    border-radius: 100%;
+}
+
+.score {
+    font-size: 5rem;
+    font-weight: 200;
+}
+
+.result {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.4rem;
+    text-transform: lowercase;
+}
+/* .reset {
+    margin: 2em 0;
+    text-align: center;
+} */
+
+.player h2:nth-of-type(1) {
+    letter-spacing: .5rem;
+}
+
+.start, .reset {
+    /* width: 100%; */
+    width: 8em;
+    height: 2em;
+    margin: 2em auto;
+    padding: 1.2em 0;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    cursor: pointer;
+    /* font-weight: bold; */
+    font-family: 'Roboto Mono', monospace;
+}
+
+.remove {
+    display: none;
+}
