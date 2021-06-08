@@ -14,24 +14,11 @@ let playerInfo = {
     }
 }
 
-let player1 = {
-    id: 1,
-    name:'Player1',
-    score: 0,
-    color: "#273342"
-}
-
-let player2 = {
-    id: 2,
-    name:'Player2',
-    score: 0,
-    color: "#ad5534"
-}
-
-
 let game = false;
-let p1Score = 0;
-let p2Score = 0;
+// let p1Score = 0;
+// let p2Score = 0;
+let p1Card = document.querySelector('.player1-score');
+let p2Card = document.querySelector('.player2-score');
 let currentPlayer = "player1";
 let nums = document.querySelectorAll('.the-num');
 let boxes = document.querySelectorAll('.draw-box');
@@ -59,40 +46,38 @@ let numToBoxes = (numlist) => {
     });
 };
 
-numToBoxes(randNums());
-
-// only accept clicks on box if game is running
-// reveal card value and switch player
-boxes.forEach((box) => {
-    box.addEventListener('click', () => {
-        if (game) {
-            box.style.background = playerInfo[currentPlayer].color;
-            box.style.color = 'white';
-            box.firstElementChild.classList.remove('hide');
-            let val = parseInt(box.firstElementChild.innerHTML);
-            playerInfo[currentPlayer].score += val;
-            winCheck();
-            switchPlayer();
-        }
-    })
-});
-
-
-
-if (game == false) {
-    input.forEach((input) => {
-        input.addEventListener('keyup', () => {
-            let player = input.id.split("-")[0];
-            let playerName=document.querySelector(`#${player}-name`);
-            if (input.value === "") {
-                playerName.textContent = player;
-            } else {
-                playerInfo[player].name = input.value;
-                playerName.textContent = input.value;
+let mainGame = () => {
+    boxes.forEach((box) => {
+        box.addEventListener('click', () => {
+            if (game) {
+                box.style.background = playerInfo[currentPlayer].color;
+                box.style.color = 'white';
+                box.firstElementChild.classList.remove('hide');
+                box.classList.add('noclick');
+                let val = parseInt(box.firstElementChild.innerHTML);
+                playerInfo[currentPlayer].score += val;
+                showScore();
+                winCheck();
+                switchPlayer();
             }
-        });
+        })
     });
 }
+
+mainGame();
+
+input.forEach((input) => {
+    input.addEventListener('keyup', () => {
+        let player = input.id.split("-")[0];
+        let playerName=document.querySelector(`#${player}-name`);
+        if (input.value === "") {
+            playerName.textContent = player;
+        } else {
+            playerInfo[player].name = input.value;
+            playerName.textContent = input.value;
+        }
+    });
+});
 
 let switchPlayer = () => {
     document.querySelector(`.${currentPlayer}-active`).classList.add('hide');
@@ -105,38 +90,82 @@ let switchPlayer = () => {
     document.querySelector(`.${currentPlayer}-active`).classList.remove('hide');
 }
 
-// when start button is clicked
-
 let startGame = () => {
     game = true;
+    numToBoxes(randNums());
     startBtn.classList.toggle('remove');
     resetBtn.classList.toggle('remove');
     input.forEach((input) => {
         input.classList.add('hide');
-
     })
 }
 
-let scoreUpdate = (value) => {
-    let score = playerInfo[currentPlayer].score;
-    score += value;
-}
 
 let winCheck = () => {
+    let p1 = playerInfo.player1.score;
+    let p2 = playerInfo.player2.score;
+    let p1Name = playerInfo.player1.name;
+    let p2Name = playerInfo.player2.name;
+
     if (playerInfo[currentPlayer].score >= 11) {
-        console.log(`${currentPlayer} has won...`);
+        let winner = document.querySelector(`.${currentPlayer}-score`);
+        winner.textContent = "winner!"
+        revealCards();
+        game = false;
     }
-    if (playerInfo.player1.score + playerInfo.player2.score === 21) {
-        if (playerInfo.player1.score > playerInfo.player2.score) {
-            console.log('player1 has won......');
+    if (p1 - p2 >= 6 && p2 > 1) {
+        console.log(`${p1Name} has won...`);
+        revealCards();
+    }
+    if (p2 - p1 >= 6 && p1 > 1) {
+        console.log(`${p2Name} has won...`);
+        revealCards();
+    }
+    if (p1 + p2 === 21) {
+        if (p1 > p2) {
+            console.log(`${p1Name} has won...`);
         } else {
-            console.log('player2 has won...');
+            console.log(`${p2Name} has won...`);
         }
     }
 }
 
+
+let revealCards = () => {
+    nums.forEach((num) => {
+        num.classList.remove('hide');
+        game = false;
+    })
+}
+
+let showScore = () => {
+    p1Card.textContent = playerInfo.player1.score;
+    p2Card.textContent = playerInfo.player2.score;
+}
+
+let reset = () => {
+    game = false;
+    numToBoxes(randNums());
+    startBtn.classList.toggle('remove');
+    resetBtn.classList.toggle('remove');
+    playerInfo.player1.score = 0;
+    playerInfo.player2.score = 0;
+    p1Card.textContent = 0;
+    p2Card.textContent = 0;
+
+    boxes.forEach((box) => {
+        box.style.background = "#dde8eb";
+        box.style.color = "black";
+        box.classList.remove('noclick');
+    })
+
+    input.forEach((input) => {
+        input.classList.remove('hide');
+    })
+}
+
 startBtn.addEventListener('click', startGame);
-// resetBtn.addEventListener('click', whatScore);
+resetBtn.addEventListener('click', reset);
 
 
 // console.log(playerInfo.player1.score)

@@ -44,6 +44,7 @@ input {
     min-height: 6em;
     background: #dde8eb;
     margin: .4em 1em;
+    cursor: pointer;
 }
 
 .draw-box p {
@@ -125,8 +126,29 @@ input {
     cursor: pointer;
     /* font-weight: bold; */
     font-family: 'Roboto Mono', monospace;
+    transition: all 0.3s;
 }
 
+.start {
+    background: rgba(189, 227, 145, 0.52);
+}
+
+.reset {
+    background: rgba(244, 207, 202, 0.80);
+}
+
+.start:hover, .reset:hover {
+    transform: translateY(-20%);
+}
 .remove {
     display: none;
+}
+
+.noclick {
+    pointer-events: none;
+}
+
+
+.default-col {
+
 }
