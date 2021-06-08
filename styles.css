@@ -23,9 +23,10 @@ input {
 /* header with game name */
 
 #header {
-    background: pink;
+    background: linear-gradient(to right, #273342, #ad5534);
     text-align: center;
     padding: .8em 0;
+    color: #f7f7f7;
 }
 
 #draw-boxes-container {
@@ -43,10 +44,10 @@ input {
     align-items: center;
     min-width: 6em;
     min-height: 6em;
-    background: #dde8eb;
+    background: #bbc5c8;
     margin: .4em 1em;
     cursor: pointer;
-    transition: all 1s;
+    transition: all .5s;
 }
 
 .draw-box p {
@@ -91,6 +92,7 @@ input {
     height: .8em;
     margin: 1em auto;
     border-radius: 100%;
+    transition: all .5s;
 }
 
 .score {
