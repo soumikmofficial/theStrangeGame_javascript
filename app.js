@@ -164,8 +164,39 @@ let reset = () => {
     })
 }
 
-startBtn.addEventListener('click', startGame);
-resetBtn.addEventListener('click', reset);
+
+let hideStart = () => {
+    startBtn.classList.add('hide2');
+    setTimeout(() => {
+        startBtn.classList.add('remove');
+        resetBtn.classList.remove('remove');
+        setTimeout(() => {
+            resetBtn.classList.remove('hide2');
+        }, 50);
+    }, 600);
+}
+
+let hideReset = () => {
+    resetBtn.classList.add('hide2');
+    setTimeout(() => {
+        resetBtn.classList.add('remove');
+        startBtn.classList.remove('remove');
+        setTimeout(() => {
+            startBtn.classList.remove('hide2');
+        }, 50);
+    }, 600);
+}
+
+
+startBtn.addEventListener('click', hideStart);
+startBtn.addEventListener('mouseenter', () => {startBtn.classList.add('animate')});
+startBtn.addEventListener('mouseleave', () => {startBtn.classList.remove('animate')});
+resetBtn.addEventListener('click', hideReset);
+
+
+
+
+
 
 
 // console.log(playerInfo.player1.score)

@@ -7,6 +7,7 @@
     box-sizing: border-box;
     font-family: 'Mate SC', serif;
     font-weight: 200;
+    overflow: hidden;
 }
 
 input {
@@ -45,6 +46,7 @@ input {
     background: #dde8eb;
     margin: .4em 1em;
     cursor: pointer;
+    transition: all 1s;
 }
 
 .draw-box p {
@@ -126,18 +128,19 @@ input {
     cursor: pointer;
     /* font-weight: bold; */
     font-family: 'Roboto Mono', monospace;
-    transition: all 0.3s;
 }
 
 .start {
     background: rgba(189, 227, 145, 0.52);
+    transition: all .6s;
 }
 
 .reset {
     background: rgba(244, 207, 202, 0.80);
+    transition: all .6s;
 }
 
-.start:hover, .reset:hover {
+.animate {
     transform: translateY(-20%);
 }
 .remove {
@@ -148,7 +151,10 @@ input {
     pointer-events: none;
 }
 
+.hide2 {
+    transform: translatex(600%);
+}
 
-.default-col {
-
+.draw-box:hover {
+    transform: rotate(360deg);
 }
