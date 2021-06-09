@@ -8,12 +8,12 @@
     <title>The weird Game</title>
 </head>
 <body>
-    <!-- header with the game name -->
+    <!-- the game name -->
     <div id="header">
-        <h1>The Weird Game</h1>
+        <h1>The strange game</h1>
     </div>
 
-    <!-- six boxes -->
+    <!-- the cards/boxes to hold/hide the numbers -->
     <div id="draw-boxes-container">
         <div class="draw-box"><p class="the-num"></p></div>
         <div class="draw-box"><p class="the-num"></p></div>
@@ -23,37 +23,31 @@
         <div class="draw-box"><p class="the-num"></p></div>
     </div>
 
-    <!-- live scoreboard as columns -->
     <div id="player-info">
+
+        <!-- player 1 section -->
+
         <div class="player player1 active">
-            <!-- input box for optional name -->
             <input type="text" placeholder="enter your name..." id="player1-input" class="some">
-            <!-- default/given name -->
+            <div class="player1-result result remove hide3">Winner..!</div>
             <h2 id="player1-name">Player1</h2>
             <div class="player1-active active hide"></div>
             <!-- score in divs -->
             <h2 class='player1-score score'>0</h2>
-            <!-- winner declaration -->
-            <div class="result">
-
-            </div>
         </div>
 
+        <!-- player 2 section -->
+
         <div class="player player2">
-            <!-- input box for optional name -->
             <input type="text" placeholder="enter your name..." id="player2-input">
-            <!-- default/given name -->
+            <div class="player2-result result remove hide3">Winner..!</div>
             <h2 id="player2-name">Player2</h2>
             <div class="player2-active active hide"></div>
-            <!-- score in divs -->
             <h2 class='player2-score score'>0</h2>
-            <!-- winner declaration -->
-            <div class="result">
-            </div>
         </div>
     </div>
 
-    <!-- reset button -->
+    <!-- reset button start button -->
     <div class="start">
         start
     </div>
@@ -61,14 +55,6 @@
         reset
     </div>
 
-
-
-
-
-
-
-    <script type="text/javascript" src="app.js">
-
-    </script>
+    <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

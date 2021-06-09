@@ -15,15 +15,14 @@ input {
     width: 100%;
     padding: .5em;
     text-align: center;
-    margin: 1em 0;
+    margin: 1.6em 0;
     font-family: 'Roboto Mono', monospace;
     transition: all .5s;
 
 }
-/* header with game name */
 
 #header {
-    background: linear-gradient(to right, #273342, #ad5534);
+    background: linear-gradient(to right, rgb(39, 51, 66), #ad5534);
     text-align: center;
     padding: .8em 0;
     color: #f7f7f7;
@@ -36,7 +35,6 @@ input {
     justify-content: center;
     margin: 3em 0;
 }
-/* each choice div */
 
 .draw-box {
     display: flex;
@@ -52,16 +50,12 @@ input {
 
 .draw-box p {
     font-size: 2rem;
-    transition: all 0.8s;
+    transition: all 0.5s;
 }
 
 .hide {
     transform: rotate(180deg) scale(0);
 }
-
-/* the choice numbers */
-
-/* player columns */
 
 #player-info {
     display: flex;
@@ -95,6 +89,7 @@ input {
     transition: all .5s;
 }
 
+
 .score {
     font-size: 5rem;
     font-weight: 200;
@@ -102,8 +97,9 @@ input {
 
 .result {
     font-family: 'Roboto Mono', monospace;
-    font-size: 1.4rem;
-    text-transform: lowercase;
+    font-size: 1.5rem;
+    color: #167a09;
+    margin: 1em 0;
 }
 /* .reset {
     margin: 2em 0;
@@ -155,6 +151,10 @@ input {
 
 .hide2 {
     transform: translatex(600%);
+}
+
+.hide3 {
+    transform: scale(0);
 }
 
 .draw-box:hover {
