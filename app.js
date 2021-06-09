@@ -23,7 +23,6 @@ let boxes = document.querySelectorAll('.draw-box');
 let input = document.querySelectorAll('input');
 let startBtn = document.querySelector('.start');
 let resetBtn = document.querySelector('.reset');
-let actvie = document.querySelector('.active');
 let result = document.querySelectorAll('.result');
 let winner;
 
